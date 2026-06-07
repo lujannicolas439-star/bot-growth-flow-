@@ -1,13 +1,23 @@
-from flask import Flask, render_template
-import os
+from flask import Flask, render_template, request
+import gspread
 
-# Aquí le decimos a Flask que busque en 'plantillas' en lugar de 'templates'
-app = Flask(__name__, template_folder='plantillas')
+app = Flask(__name__)
 
+# Configuración de tu formulario
 @app.route('/')
-def home():
-    return render_template('index.html')
+def index():
+    return render_template('filas.html')
+
+# Ruta que procesa los datos del formulario
+@app.route('/enviar', methods=['POST'])
+def enviar():
+    nombre = request.form['nombre']
+    email = request.form['email']
+    
+    # Aquí irá la lógica de conexión a Google Sheets
+    # registrar_en_sheet(nombre, email)
+    
+    return f"¡Datos de {nombre} recibidos correctamente!"
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run()
