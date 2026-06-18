@@ -19,12 +19,12 @@ def home():
     
     # 3. Abrir la hoja (asegúrate de que el nombre sea exacto)
     try:
-        sh = gc.open("Bot_lobo") # Nombre de tu archivo de Google Sheets
+        sh = gc.open("bot-growth-flow-1") # Nombre de tu archivo de Google Sheets
         wks = sh.sheet1
         
         # 4. Escribir datos
         wks.append_row(["Conectado", "Estado", "Operativo"])
-        return "¡Bot Lobo conectado y escribiendo en la hoja!"
+        return "¡Bot growth from 1 conectado y escribiendo en la hoja!"
     except Exception as e:
         return f"Error al conectar con la hoja: {str(e)}"
 
