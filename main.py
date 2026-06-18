@@ -1,22 +1,13 @@
-from flask import Flask, render_template, request
-import gspread
-import os
-import json
-
+from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def index():
-    # Si no tienes el archivo filas.html, esta línea dará error.
-    # Por ahora, devolvamos un texto simple.
-    return "Bot Lobo funcionando correctamente"
+def home():
+    return "Bot Lobo funcionando correctamente."
 
-@app.route('/enviar', methods=['POST'])
-def enviar():
-    nombre = request.form.get('nombre')
-    correo = request.form.get('correo electrónico')
-    
-    # Aquí irá tu lógica de Google Sheets
+if __name__ == '__main__':
+    app.run()
+
     return f"Datos de {nombre} recibidos correctamente"
 
 if __name__ == '__main__':
