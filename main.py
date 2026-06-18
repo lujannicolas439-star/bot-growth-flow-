@@ -13,7 +13,7 @@ def guardar():
     cliente = request.form.get('cliente')
     producto = request.form.get('producto')
     monto = request.form.get('monto')
-    return f"Datos recibidos: {cliente}, {producto}, {monto}"
+    return f"Datos recibidos: {cliente}, {producto}, {monto}, {fecha}, {estado}"
 
 if __name__ == '__main__':
     app.run()
