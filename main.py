@@ -4,17 +4,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+    # Renderiza el archivo index.html que está en la carpeta templates
     return render_template('index.html')
 
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    # Aquí irá tu lógica para conectar con Google Sheets más adelante
+    # Aquí irá tu lógica de Google Sheets más adelante
     cliente = request.form.get('cliente')
     producto = request.form.get('producto')
     monto = request.form.get('monto')
-    print(f"Datos recibidos: {cliente}, {producto}, {monto}")
-    return "Datos recibidos correctamente"
+    return f"Datos recibidos: {cliente}, {producto}, {monto}"
 
 if __name__ == '__main__':
     app.run()
-
