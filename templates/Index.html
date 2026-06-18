@@ -1,257 +1,57 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsyncLatAm: The Flow - High-Output Non-Verbal Remote Talent</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>AsyncLatAm Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .gradient-bg {
             background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-850 font-sans scroll-smooth">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- HEADER / NAV -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-blue-900 tracking-tight">
-                Async<span class="text-teal-600">LatAm</span><span class="text-gray-400 font-light text-xl">: The Flow</span>
-            </div>
-            <nav class="space-x-6 hidden md:flex">
-                <a href="#benefits" class="text-gray-600 hover:text-blue-900 transition font-medium text-sm">Benefits</a>
-                <a href="#how-it-works" class="text-gray-600 hover:text-blue-900 transition font-medium text-sm">How it Works</a>
-                <a href="#pricing" class="text-gray-600 hover:text-blue-900 transition font-medium text-sm">Pricing</a>
-                <a href="#faq" class="text-gray-600 hover:text-blue-900 transition font-medium text-sm">FAQ</a>
-            </nav>
-            <a href="#contact" class="bg-teal-600 hover:bg-teal-700 text-white px-5 py-2 rounded-lg font-medium transition text-sm">
-                Get Started
-            </a>
-        </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="gradient-bg text-white py-24 px-4 text-center">
-        <div class="max-w-4xl mx-auto">
-            <span class="bg-blue-900/50 text-teal-300 text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
-                Introducing AsyncLatAm: The Flow
-            </span>
-            <h1 class="text-4xl md:text-6xl font-extrabold mt-5 mb-6 leading-tight">
-                Scale Your US Company with Elite, Non-Verbal Talent
-            </h1>
-            <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
-                Stop wasting time on spoken English friction. Access Latin American professionals trained to deliver top-tier results 100% asynchronously via Slack, Jira, and GitHub.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#contact" class="bg-teal-500 hover:bg-teal-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition transform hover:-translate-y-0.5">
-                    Deploy "The Flow" In Your Team
-                </a>
-                <a href="#benefits" class="bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold px-8 py-4 rounded-xl transition">
-                    See How It Works
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFITS SECTION -->
-    <section id="benefits" class="py-20 max-w-6xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">Why Asynchronous LatAm Talent?</h2>
-            <p class="text-gray-600 max-w-xl mx-auto">Efficiency doesn't need an accent. Our talent focuses 100% on execution, documentation, and crystal-clear written communication.</p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl font-bold mb-6">$</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">70% Cost Reduction</h3>
-                <p class="text-gray-600 leading-relaxed">Get the exact same high-quality output as a US-based professional for a fraction of the cost by leveraging regional exchange rates.</p>
+    <main class="min-h-screen flex items-center justify-center p-6">
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-2xl w-full max-w-md border border-gray-100">
+            
+            <div class="mb-8 text-center">
+                <img src="{{ url_for('static', filename='foto.jpeg') }}" 
+                     alt="AsyncLatAm" 
+                     class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-teal-500 shadow-lg">
             </div>
 
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-teal-600 text-2xl font-bold mb-6">✍️</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Zero Verbal Friction</h3>
-                <p class="text-gray-600 leading-relaxed">Talent communicates strictly via text (Slack, Notion, GitHub). Perfect written English, zero anxiety about spoken fluency or accents.</p>
-            </div>
-
-            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center text-indigo-600 text-2xl font-bold mb-6">🕒</div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3">Same Time Zone</h3>
-                <p class="text-gray-600 leading-relaxed">Unlike outsourcing to Asia or Europe, LatAm aligns perfectly with US time zones (EST/CST/PST) for real-time text collaboration.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="bg-gray-100 py-20 px-4">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-blue-900 mb-4">How We Guarantee Success</h2>
-                <p class="text-gray-600">We source, vet, and train specialists specifically for high-output, non-verbal roles.</p>
-            </div>
-
-            <div class="space-y-6">
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-3xl font-extrabold text-teal-500 md:w-1/4 text-center">01</div>
-                    <div class="md:w-3/4">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Rigorous Hard-Skills Vetting</h4>
-                        <p class="text-gray-600">We run candidates through strict technical challenges (Coding logic, UI/UX design execution, or Data management) to ensure they match US agency level.</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-3xl font-extrabold text-teal-500 md:w-1/4 text-center">02</div>
-                    <div class="md:w-3/4">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Async Communication Training</h4>
-                        <p class="text-gray-600">Talent is trained in proactive documentation, daily written standups, and utilizing advanced AI proofreading tools for flawless business text grammar.</p>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm">
-                    <div class="text-3xl font-extrabold text-teal-500 md:w-1/4 text-center">03</div>
-                    <div class="md:w-3/4">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">Plug & Play Tasks Insertion</h4>
-                        <p class="text-gray-600">You assign objectives directly into your workspace. The talent processes and delivers without interrupting your day with meetings.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: PRICING (Sección de Precios) -->
-    <section id="pricing" class="py-20 max-w-5xl mx-auto px-4">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl font-bold text-blue-900 mb-4">Simple, Scalable Pricing</h2>
-            <p class="text-gray-600">Unbeatable rates compared to local US hiring. No hidden fees, no long-term contracts.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <!-- Plan Part-Time -->
-            <div class="bg-white p-8 rounded-3xl shadow-sm border border-gray-200 flex flex-col justify-between">
+            <h1 class="text-3xl font-extrabold text-blue-900 mb-2 text-center">¡Súmate al Flow!</h1>
+            <p class="text-gray-500 mb-8 text-center">Completa los datos y empecemos a escalar.</p>
+            
+            <form action="/guardar" method="POST" class="space-y-5">
                 <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Growth Flow</h3>
-                    <p class="text-gray-500 text-sm mb-6">Perfect for growing agencies needing specialized hands.</p>
-                    <div class="text-4xl font-extrabold text-blue-900 mb-6">$1,490<span class="text-gray-400 text-sm font-normal"> / month</span></div>
-                    <ul class="space-y-3 text-gray-600 text-sm mb-8">
-                        <li class="flex items-center">✅ 20 Hours/Week Dedicated Specialist</li>
-                        <li class="flex items-center">✅ 100% Written English Communication</li>
-                        <li class="flex items-center">✅ US Time Zone Alignment</li>
-                        <li class="flex items-center">✅ Pre-vetted Technical Skills</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="block text-center bg-gray-100 hover:bg-gray-200 text-blue-900 font-semibold py-3 rounded-xl transition">Select Growth Flow</a>
-            </div>
-
-            <!-- Plan Full-Time (Destacado) -->
-            <div class="bg-white p-8 rounded-3xl shadow-xl border-2 border-teal-500 flex flex-col justify-between relative">
-                <span class="absolute -top-3 right-8 bg-teal-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Scale Flow</h3>
-                    <p class="text-gray-500 text-sm mb-6">Full-time execution capacity to accelerate your business.</p>
-                    <div class="text-4xl font-extrabold text-blue-900 mb-6">$2,690<span class="text-gray-400 text-sm font-normal"> / month</span></div>
-                    <ul class="space-y-3 text-gray-600 text-sm mb-8">
-                        <li class="flex items-center">✅ 40 Hours/Week Dedicated Specialist</li>
-                        <li class="flex items-center">✅ 100% Written English Communication</li>
-                        <li class="flex items-center">✅ US Time Zone Alignment</li>
-                        <li class="flex items-center">✅ Pre-vetted Technical Skills</li>
-                        <li class="flex items-center font-semibold text-teal-600">✅ Priority Talent Replacement Guarantee</li>
-                    </ul>
-                </div>
-                <a href="#contact" class="block text-center bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 rounded-xl transition shadow-md">Select Scale Flow</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- NEW SECTION: FAQ (Sección de Preguntas Frecuentes) -->
-    <section id="faq" class="bg-gray-100 py-20 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-blue-900 mb-4">Frequently Asked Questions</h2>
-                <p class="text-gray-600">Everything you need to know about our non-verbal workflow.</p>
-            </div>
-
-            <div class="space-y-4">
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h4 class="font-bold text-gray-900 mb-2">How can they work in English if they don't speak it?</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">Our professionals have high-level written comprehension and technical skills. They utilize modern grammar and AI assistance tools to read and write flawless technical English updates, eliminating any verbal conversational barriers entirely.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h4 class="font-bold text-gray-900 mb-2">How do we manage tasks and monitor progress?</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">You insert them directly into your current project management ecosystem (Jira, Trello, Slack, GitHub). They provide concrete daily written standups and clear execution logs without requiring constant live meetings.</p>
-                </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm">
-                    <h4 class="font-bold text-gray-900 mb-2">What happens if a professional doesn't match our culture?</h4>
-                    <p class="text-gray-600 text-sm leading-relaxed">We offer a talent replacement guarantee. If a specific profile does not fulfill your performance or execution flow standards, we provide a replacement within 5 to 7 business days.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTACT / CTA FORM -->
-    <section id="contact" class="py-20 max-w-xl mx-auto px-4">
-        <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-blue-900 mb-2">Get Prefiltered LatAm Talent</h3>
-                <p class="text-gray-500 text-sm">Tell us what you need, and we will find the perfect async match.</p>
-            </div>
-
-            <!-- Formulario conectado a Formspree -->
-            <form action="https://formspree.io/f/TU_CODIGO_DE_FORMSPREE" method="POST" class="space-y-5">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
-                    <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="John Doe">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Company Email</label>
-                    <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500" placeholder="john@company.com">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">What role are you looking for?</label>
-                    <select name="role" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500 text-gray-600">
-                        <option value="Python Developer">Python / Backend Developer</option>
-                        <option value="Frontend Developer">Frontend / Web Developer</option>
-                        <option value="UI/UX Designer">UI/UX Graphic Designer</option>
-                        <option value="Data Analyst">Data Analyst / Admin Assistant</option>
-                        <option value="Video Editor">Video Editor / Content Creator</option>
-                    </select>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Nombre del Cliente</label>
+                    <input type="text" name="cliente" required 
+                           class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-teal-500 outline-none transition">
                 </div>
                 
-                <input type="hidden" name="_subject" value="New Lead from AsyncLatAm: The Flow!">
-
-                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-4 rounded-xl transition shadow-md">
-                    Request Talent Profiles
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Producto / Servicio</label>
+                    <input type="text" name="producto" required 
+                           class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-teal-500 outline-none transition">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-bold text-gray-700 mb-1">Monto ($)</label>
+                    <input type="number" name="monto" required 
+                           class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:ring-2 focus:ring-teal-500 outline-none transition">
+                </div>
+                
+                <button type="submit" 
+                        class="w-full gradient-bg hover:opacity-90 text-white font-bold py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">
+                    Enviar al Bot
                 </button>
             </form>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-blue-950 text-gray-400 py-8 text-center text-sm border-t border-blue-900">
-        <p>&copy; 2026 AsyncLatAm: The Flow. All rights reserved. Connecting global demand with focused talent.</p>
-    </footer>
-
-    <section id="contact" class="py-20 max-w-xl mx-auto px-4">
-        <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100">
-            <div class="text-center mb-8">
-                <h3 class="text-2xl font-bold text-blue-900 mb-2">Get Prefiltered LatAm Talent</h3>
-                <p class="text-gray-500 text-sm">Tell us what you need, and we will find the perfect async match.</p>
-            </div>
-
-            <form action="/enviar" method="POST" class="space-y-5">
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
-                    <input type="text" name="nombre" placeholder="Nombre" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold text-gray-700 mb-1">Email</label>
-                    <input type="email" name="email" placeholder="Email" required class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-teal-500">
-                </div>
-                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-950 text-white font-bold py-4 rounded-xl transition shadow-md">
-                    Enviar al Lobo
-                </button>
-            </form>
-            </div>
-    </section>
+    </main>
 
 </body>
 </html>
+        
