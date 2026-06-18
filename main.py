@@ -1,19 +1,35 @@
+import gspread
+import json
+import os
+from oauth2client.service_account import ServiceAccountCredentials
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+# Configuración de credenciales desde Render
+creds_json = os.environ.get('GOOGLE_CREDENTIALS')
+creds_dict = json.loads(creds_json)
+scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets']
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
+client = gspread.authorize(creds)
+
+# Conectar con tu hoja (pon el nombre exacto de tu archivo en Google Sheets)
+sheet = client.open("NombreDeTuHoja").sheet1 
+
 @app.route('/')
 def index():
-    # Renderiza el archivo index.html que está en la carpeta templates
     return render_template('index.html')
 
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    # Aquí irá tu lógica de Google Sheets más adelante
     cliente = request.form.get('cliente')
     producto = request.form.get('producto')
     monto = request.form.get('monto')
-    return f"Datos recibidos: {cliente}, {producto}, {monto}, {fecha}, {estado}"
+    
+    # Escribir en la hoja
+    sheet.append_row([cliente, producto, monto])
+    
+    return "¡Datos enviados con éxito!"
 
 if __name__ == '__main__':
     app.run()
