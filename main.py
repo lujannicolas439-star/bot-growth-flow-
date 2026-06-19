@@ -1,42 +1,33 @@
-import os
-import json
-import gspread
-import openai
-from flask import Flask, render_template, request
+import smtplib
+from email.message import EmailMessage
 
-app = Flask(__name__)
-
-# 1. Configuración de APIs
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-
-# 2. Configuración de Google Sheets
-# Cargamos las credenciales desde la variable de entorno
-creds_dict = json.loads(os.environ.get("GOOGLE_CREDENTIALS"))
-# Creamos un archivo temporal para que gspread lo pueda leer
-with open('creds.json', 'w') as f:
-    json.dump(creds_dict, f)
-
-gc = gspread.service_account(filename='creds.json')
-sh = gc.open("bot-growth-flow-1") # Asegúrate que este nombre sea exacto al de tu hoja
-worksheet = sh.sheet1
-
-# 3. Rutas
-@app.route('/')
-def home():
-    return render_template('index.html')
+# ... (todo tu código anterior de conexión a Sheets y OpenAI) ...
 
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    # Recibir datos
     cliente = request.form.get('cliente')
     producto = request.form.get('producto')
     monto = request.form.get('monto')
     
-    # Escribir en Google Sheets
+    # 1. Guardar en Sheets
     worksheet.append_row([cliente, producto, monto])
     
-    # Aquí puedes añadir la llamada a OpenAI si deseas mostrar una respuesta personalizada
-    return f"<h1>Trato registrado para {cliente}</h1><p>Los datos han sido guardados en el sistema.</p>"
+    # 2. Generar guion con IA
+    prompt = f"Escribe un guion de ventas persuasivo para vender {producto} a {cliente} por {monto}."
+    response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
+    guion = response.choices[0].message.content
+    
+    # 3. Enviar email
+    msg = EmailMessage()
+    msg.set_content(guion)
+    msg['Subject'] = f'Nuevo Guion de Ventas: {cliente}'
+    msg['From'] = 'tu_correo@gmail.com'
+    msg['To'] = 'tu_correo_personal@gmail.com' # Aquí recibes el guion
 
-if __name__ == '__main__':
-    app.run()
+    # Configuración de tu cuenta para enviar (usa App Password de Gmail)
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login('tu_correo@gmail.com', 'tu_app_password')
+        smtp.send_message(msg)
+    
+    # 4. Mostrar en pantalla
+    return f"<h1>Trato registrado</h1><p>El guion ha sido enviado a tu correo.</p><pre>{guion}</pre>"
