@@ -1,24 +1,19 @@
-from flask import Flask, render_template, request
-import os
-import openai
+import gspread
+from flask import request
 
-# 1. PRIMERO definimos la aplicación
-app = Flask(__name__)
+# Configura la conexión (esto debe ir fuera de la función, al inicio)
+gc = gspread.service_account(filename='credentials.json')
+sh = gc.open("bot-growth-flow-1") # Asegúrate que el nombre coincida
+worksheet = sh.sheet1
 
-# 2. LUEGO configuramos la clave de la IA
-openai.api_key = os.environ.get("OPENAI_API_KEY")
-
-# 3. AHORA definimos la ruta del formulario
-@app.route('/')
-def home():
-    return render_template('index.html')
-
-# 4. Y finalmente la ruta para procesar el formulario
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    # Aquí irá tu lógica de ventas
-    return "¡Trato procesado!"
-
-# 5. Esto es necesario para que Flask arranque
-if __name__ == '__main__':
-    app.run()
+    # Obtener datos del formulario
+    empresa = request.form.get('cliente')
+    producto = request.form.get('producto')
+    monto = request.form.get('monto')
+    
+    # Escribir en la hoja
+    worksheet.append_row([empresa, producto, monto])
+    
+    return "¡Trato guardado exitosamente en la hoja!"
