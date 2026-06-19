@@ -1,45 +1,18 @@
-<style>
-    body { 
-        background: #000; 
-        color: #d4af37; 
-        font-family: 'Georgia', serif; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        min-height: 100vh; 
-        margin: 0; 
-    }
-    .container { 
-        background: #0a0a0a; 
-        padding: 60px; /* Más espacio interno */
-        border: 2px solid #d4af37; 
-        border-radius: 10px; 
-        text-align: center; 
-        width: 90%;      /* El formulario ocupará el 90% de la pantalla */
-        max-width: 600px; /* Pero no pasará de 600px para verse elegante */
-        box-shadow: 0 0 40px rgba(212, 175, 55, 0.4); 
-    }
-    h1 { font-size: 2em; color: #fff; margin-bottom: 30px; }
-    input { 
-        width: 100%; 
-        padding: 20px; /* Inputs más grandes y fáciles de tocar */
-        margin: 15px 0; 
-        background: #1a1a1a; 
-        border: 1px solid #d4af37; 
-        color: #fff; 
-        border-radius: 5px; 
-        font-size: 18px; /* Texto más grande */
-    }
-    button { 
-        width: 100%; 
-        padding: 25px; 
-        background: #d4af37; 
-        border: none; 
-        color: #000; 
-        font-weight: bold; 
-        font-size: 18px; 
-        cursor: pointer; 
-        text-transform: uppercase; 
-        margin-top: 20px;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulario</title>
+</head>
+<body style="background-color: black; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+
+    <div style="background-color: #1a1a1a; padding: 40px; border: 2px solid #d4af37; border-radius: 10px; text-align: center; width: 300px;">
+        <h1 style="color: #d4af37;">EL MERCADO ES TUYO</h1>
+        <form action="/guardar" method="POST">
+            <input type="text" name="cliente" placeholder="Empresa" style="width: 100%; margin: 10px 0; padding: 10px;"><br>
+            <input type="number" name="monto" placeholder="Monto" style="width: 100%; margin: 10px 0; padding: 10px;"><br>
+            <button type="submit" style="width: 100%; padding: 15px; background: #d4af37; border: none; cursor: pointer;">CERRAR EL TRATO</button>
+        </form>
+    </div>
+
+</body>
+</html>
