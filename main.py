@@ -34,3 +34,4 @@ def guardar():
         return "¡Datos enviados correctamente!", 200
     except Exception as e:
         return f"Error al guardar: {str(e)}", 500
+        
