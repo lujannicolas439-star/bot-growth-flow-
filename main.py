@@ -1,18 +1,31 @@
+import openai
+import os
+from flask import Flask, request
+
+app = Flask(__name__)
+
+# Conexión segura a OpenAI usando la variable que configuramos en Render
+client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    # Lógica de captura de datos
-    # ... (aquí mantienes tu lógica de hoja de cálculo)
+    cliente = request.form.get('cliente')
+    producto = request.form.get('producto')
     
-    # Mentalidad de Liderazgo y Amistad
-    return """
-    <body style="background:#000; color:#fff; text-align:center; font-family:sans-serif; padding-top:15%;">
-        <h1 style="color:#d4af37;">OPERACIÓN EXITOSA, SOCIO.</h1>
-        <p>Acabas de poner dinero en el tablero. No es suerte, es estrategia. 
-           Tus prospectos en EE.UU. no saben qué los golpeó, 
-           pero ahora están en nuestra lista.</p>
-        <p>El bot sigue activo 24/7. Tú descansa, yo cierro.</p>
-        <br>
-        <a href='/' style="color:#d4af37;">Buscar el siguiente tiburón</a>
-    </body>
-    """, 200
+    # Aquí creamos el prompt con la "Mentalidad de Lobo"
+    prompt = f"Actúa como el mejor cerrador de ventas de Wall Street. Escribe un mensaje persuasivo para convencer a {cliente} de comprar {producto}. Enfócate en la exclusividad y la urgencia."
+    
+    # Llamada a la IA
+    respuesta = client.chat.completions.create(
+        model="gpt-4o", # O "gpt-3.5-turbo" si prefieres
+        messages=[{"role": "user", "content": prompt}]
+    )
+    
+    guion_ventas = respuesta.choices[0].message.content
+    
+    # Aquí puedes añadir el código para guardar en Google Sheets y/o enviar por email
+    return f"<h1>Mensaje generado para {cliente}:</h1><p>{guion_ventas}</p>"
+
+if __name__ == '__main__':
+    app.run()
 
