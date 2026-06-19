@@ -17,4 +17,4 @@ EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_USER = "tu_correo@gmail.com" # Puedes poner tu correo aquí o también usar una variable
 
 # --- CONFIGURACIÓN DE GOOGLE SHEETS ---
-# (Tu código de conexión aquí abajo...)
+# (Tu código de conexión aquí abajo...) 
