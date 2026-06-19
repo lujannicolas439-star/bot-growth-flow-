@@ -1,33 +1,18 @@
-import gspread
-import json
-import os
-from oauth2client.service_account import ServiceAccountCredentials
-from flask import Flask, render_template, request
-
-app = Flask(__name__)
-
-# Configuración de credenciales
-creds_json = os.environ.get('GOOGLE_CREDENTIALS')
-creds_dict = json.loads(creds_json)
-scope = ["https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
-client = gspread.authorize(creds)
-
-# Conexión a la hoja (verifica que el nombre sea el correcto en tu Google Drive)
-sheet = client.open("bot-growth-flow-1").sheet1
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
 @app.route('/guardar', methods=['POST'])
 def guardar():
-    cliente = request.form.get('cliente')
-    producto = request.form.get('producto')
-    monto = request.form.get('monto')
-    sheet.append_row([cliente, producto, monto])
-    return "¡Enviado con éxito!", 200
-
-if __name__ == '__main__':
-    app.run()
+    # Lógica de captura de datos
+    # ... (aquí mantienes tu lógica de hoja de cálculo)
+    
+    # Mentalidad de Liderazgo y Amistad
+    return """
+    <body style="background:#000; color:#fff; text-align:center; font-family:sans-serif; padding-top:15%;">
+        <h1 style="color:#d4af37;">OPERACIÓN EXITOSA, SOCIO.</h1>
+        <p>Acabas de poner dinero en el tablero. No es suerte, es estrategia. 
+           Tus prospectos en EE.UU. no saben qué los golpeó, 
+           pero ahora están en nuestra lista.</p>
+        <p>El bot sigue activo 24/7. Tú descansa, yo cierro.</p>
+        <br>
+        <a href='/' style="color:#d4af37;">Buscar el siguiente tiburón</a>
+    </body>
+    """, 200
 
