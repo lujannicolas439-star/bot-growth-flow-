@@ -1,5 +1,4 @@
-
 flask
 gunicorn
 gspread
-oauth2client 
+oauth2client
