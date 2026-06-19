@@ -3,4 +3,3 @@ openai
 gunicorn
 gspread
 oauth2client
-sendgrid
