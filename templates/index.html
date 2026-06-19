@@ -1,16 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formulario</title>
-</head>
-<body style="background-color: black; color: white; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Eliminamos cualquier margen por defecto */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #000; 
+            color: #d4af37; 
+            font-family: 'Georgia', serif; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            min-height: 100vh; /* Ocupa el 100% de la altura de la pantalla */
+            width: 100vw;      /* Ocupa el 100% del ancho de la pantalla */
+        }
 
-    <div style="background-color: #1a1a1a; padding: 40px; border: 2px solid #d4af37; border-radius: 10px; text-align: center; width: 300px;">
-        <h1 style="color: #d4af37;">EL MERCADO ES TUYO</h1>
+        .container { 
+            background-color: #0a0a0a; 
+            padding: 5vh 5vw; /* Padding proporcional a la pantalla */
+            border: 3px solid #d4af37; 
+            border-radius: 15px; 
+            text-align: center; 
+            width: 90%; 
+            max-width: 800px; /* Tamaño máximo para que no se deforme en monitores gigantes */
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 40px; text-transform: uppercase; }
+
+        input { 
+            width: 100%; 
+            padding: 25px; 
+            margin: 20px 0; 
+            background: #111; 
+            border: 2px solid #d4af37; 
+            color: #fff; 
+            font-size: 1.5rem; 
+            border-radius: 8px;
+        }
+
+        button { 
+            width: 100%; 
+            padding: 30px; 
+            background: #d4af37; 
+            border: none; 
+            color: #000; 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            margin-top: 30px;
+            transition: 0.3s;
+        }
+        
+        button:hover { background: #f0c950; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>EL MERCADO ES TUYO</h1>
         <form action="/guardar" method="POST">
-            <input type="text" name="cliente" placeholder="Empresa" style="width: 100%; margin: 10px 0; padding: 10px;"><br>
-            <input type="number" name="monto" placeholder="Monto" style="width: 100%; margin: 10px 0; padding: 10px;"><br>
-            <button type="submit" style="width: 100%; padding: 15px; background: #d4af37; border: none; cursor: pointer;">CERRAR EL TRATO</button>
+            <input type="text" name="cliente" placeholder="Nombre de la Empresa" required>
+            <input type="text" name="producto" placeholder="Servicio/Producto" required>
+            <input type="number" name="monto" placeholder="Monto del Trato" required>
+            <button type="submit">CERRAR EL TRATO AHORA</button>
         </form>
     </div>
 
