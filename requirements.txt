@@ -2,3 +2,5 @@ flask
 gunicorn
 gspread
 oauth2client
+openai
+sendgrid
