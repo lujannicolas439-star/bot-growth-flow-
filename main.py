@@ -9,10 +9,10 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Configuración de APIs
+# Configuración
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_USER = "tu_correo@gmail.com" # Cambia esto por tu email real
+EMAIL_USER = "lujannicolas439@gmail.com" # Cambia por tu mail
 
 # Conexión Sheets
 creds_dict = json.loads(os.environ.get("GOOGLE_CREDENTIALS"))
@@ -21,7 +21,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 gc = gspread.authorize(creds)
 worksheet = gc.open("bot-growth-flow-1").sheet1
 
-@app.route('/', methods=['GET'])
+@app.route('/')
 def home():
     return render_template('index.html')
 
@@ -32,12 +32,15 @@ def guardar():
         producto = request.form.get('producto')
         monto = request.form.get('monto')
         
+        # Guardar en Sheet
         worksheet.append_row([cliente, producto, monto])
         
+        # Generar guion
         prompt = f"Escribe un guion de ventas persuasivo para vender {producto} a {cliente} por {monto}."
         response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": prompt}])
         guion = response.choices[0].message.content
         
+        # Enviar Email
         msg = EmailMessage()
         msg.set_content(guion)
         msg['Subject'] = f'Nuevo Trato: {cliente}'
@@ -48,9 +51,10 @@ def guardar():
             smtp.login(EMAIL_USER, EMAIL_PASSWORD)
             smtp.send_message(msg)
         
-        return f"<h1>Trato registrado</h1><pre>{guion}</pre>"
+        return "Éxito: Trato registrado y email enviado."
     except Exception as e:
-        return f"Error crítico: {str(e)}"
+        return f"Error: {str(e)}"
 
 if __name__ == '__main__':
     app.run()
+
